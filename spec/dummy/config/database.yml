@@ -1,0 +1,21 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: dummy
+  password: koi8rus
+  host: localhost
+  reconnect: true
+
+development:
+  <<: *default
+  database: dummy_development_db
+
+test:
+  <<: *default
+  database: dummy_test_db
+
+
+production:
+  <<: *default
+  database: dummy_db
