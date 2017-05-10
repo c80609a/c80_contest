@@ -11,5 +11,7 @@ module C80Contest
               :format => { with: /\A((8|\+?7)[\- ]?)?(\(?\d{3,5}\)?[\- ]?)?[\d\- ]{5,10}\z/}
 
     validates_presence_of :photo
+
+    mount_uploader :photo, C80Contest::BidPhotoUploader
   end
 end
