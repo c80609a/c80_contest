@@ -1,13 +1,20 @@
 
 ENV['RAILS_ENV'] ||= 'test'
 
+# require 'capybara/rspec'
+
+# require 'combustion'
+# Combustion.path = 'spec/dummy'
+# Combustion.initialize! :all
+
 require 'bundler/setup'
 require 'shoulda/matchers'
 require 'carrierwave'
 require 'carrierwave/orm/activerecord'
 require 'mini_magick'
-require File.expand_path('../dummy/config/environment.rb', __FILE__)
+require File.expand_path('../dummy/config/environment.rb', __FILE__) # конфликтует с combustion
 require 'rspec/rails'
+# require 'capybara/rails'
 require 'c80_contest'
 
 Rails.backtrace_cleaner.remove_silencers!

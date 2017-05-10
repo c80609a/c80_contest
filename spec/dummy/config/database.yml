@@ -1,4 +1,4 @@
-default: &default
+test:
   adapter: mysql2
   encoding: utf8
   pool: 5
@@ -6,16 +6,4 @@ default: &default
   password: koi8rus
   host: localhost
   reconnect: true
-
-development:
-  <<: *default
-  database: dummy_development_db
-
-test:
-  <<: *default
   database: dummy_test_db
-
-
-production:
-  <<: *default
-  database: dummy_db

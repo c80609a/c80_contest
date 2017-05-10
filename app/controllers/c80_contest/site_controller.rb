@@ -5,5 +5,9 @@ module C80Contest
       
     end
 
+    # def index
+    #
+    # end
+
   end
 end
