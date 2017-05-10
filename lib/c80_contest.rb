@@ -1,5 +1,8 @@
-require "c80_contest/version"
+require 'c80_contest/version'
+require 'c80_contest/engine'
 
 module C80Contest
-  # Your code goes here...
+  def self.table_name_prefix
+    'c80_contest_'
+  end
 end
