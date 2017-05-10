@@ -32,4 +32,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'shoulda-matchers', '~> 3.1'
   spec.add_development_dependency 'execjs', '~> 2.7.0'
   spec.add_development_dependency 'therubyracer', '~> 0.12.3'
+  spec.add_development_dependency 'mini_magick', '~> 4.3.3'
+  spec.add_development_dependency 'carrierwave', '~> 0.10.0'
 end
