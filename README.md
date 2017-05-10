@@ -1,3 +1,6 @@
+[![Gem Version](https://badge.fury.io/rb/c80_contest.svg)](http://badge.fury.io/rb/c80_contest)
+[![Build Status](https://travis-ci.org/c080609a/c80_contest.svg?branch=master)](https://travis-ci.org/c080609a/c80_contest)
+
 # C80Contest
 
 Добавляет на сайт функционал для проведения конкурса типа "пришли фотографию чека - участвуй в конкурсе по розыгрышу 500 литров бензина".
