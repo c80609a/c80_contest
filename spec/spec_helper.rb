@@ -16,6 +16,7 @@ require File.expand_path('../dummy/config/environment.rb', __FILE__) # конф�
 require 'rspec/rails'
 # require 'capybara/rails'
 require 'c80_contest'
+require 'byebug'
 
 Rails.backtrace_cleaner.remove_silencers!
 
