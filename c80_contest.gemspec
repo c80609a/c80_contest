@@ -34,4 +34,13 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'therubyracer', '~> 0.12.3'
   spec.add_development_dependency 'mini_magick', '~> 4.3.3'
   spec.add_development_dependency 'carrierwave', '~> 0.10.0'
+
+  spec.add_development_dependency 'jquery-rails', '~> 4.3.1'
+  spec.add_development_dependency 'bootstrap-sass', '>= 3.3.5.1'
+  spec.add_development_dependency 'sass-rails', '>= 5.0.4'
+  spec.add_development_dependency 'c80_modal_forms', '~> 0.1.0.1'
+  spec.add_development_dependency 'byebug', '~> 9.0.6'
+
+  # spec.add_development_dependency 'combustion', '~> 0.6.0'
+
 end
