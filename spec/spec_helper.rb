@@ -18,6 +18,7 @@ require 'rspec/rails'
 require 'c80_contest'
 require 'byebug'
 
+ActiveRecord::Migration.check_pending!
 Rails.backtrace_cleaner.remove_silencers!
 
 # Load support files
