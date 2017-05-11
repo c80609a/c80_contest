@@ -5,6 +5,7 @@ module C80Contest
     include ::CarrierWave::MiniMagick
 
     storage :file
+    process :resize_to_limit => [1024,1024]
 
     version :thumb do
       process :resize_to_fit => [500,500]
