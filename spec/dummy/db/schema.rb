@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170510124400) do
+ActiveRecord::Schema.define(version: 20170511145501) do
 
   create_table "c80_contest_bids", force: :cascade do |t|
     t.string   "title",      limit: 255
@@ -19,6 +19,23 @@ ActiveRecord::Schema.define(version: 20170510124400) do
     t.string   "phone",      limit: 255
     t.string   "comment",    limit: 255
     t.boolean  "marked"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "c80_contest_settings", force: :cascade do |t|
+    t.string   "form_title",                limit: 255
+    t.string   "form_label_name",           limit: 255
+    t.string   "form_label_phone",          limit: 255
+    t.string   "form_label_photo",          limit: 255
+    t.string   "form_label_button_send",    limit: 255
+    t.string   "form_label_button_sending", limit: 255
+    t.string   "ok_text",                   limit: 255
+    t.string   "ok_text_title",             limit: 255
+    t.string   "admin_label_menu",          limit: 255
+    t.text     "rules",                     limit: 65535
+    t.string   "message_letter_subj",       limit: 255
+    t.text     "message_text",              limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
   end
