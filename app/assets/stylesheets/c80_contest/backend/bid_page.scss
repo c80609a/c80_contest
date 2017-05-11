@@ -1,0 +1,22 @@
+body.admin_bids {
+
+  #titlebar_right .action_items {
+    display: none;
+  }
+
+  .table_tools {
+    display: none;
+  }
+
+  a.edit_link {
+    display: none;
+  }
+  a.delete_link {
+    display: none;
+  }
+
+  .blank_slate_container {
+    opacity: 0;
+  }
+
+}
