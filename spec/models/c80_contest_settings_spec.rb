@@ -16,6 +16,8 @@ RSpec.describe C80Contest::Setting, :type => :model do
     # it { should validate_presence_of :rules }
     it { should validate_presence_of :message_letter_subj }
     it { should validate_presence_of :message_text }
+    it { should validate_presence_of :admin_label_settings }
+    it { should validate_presence_of :admin_label_bids }
   end
   
   context 'Проверяем длину' do
@@ -31,6 +33,8 @@ RSpec.describe C80Contest::Setting, :type => :model do
     it { should validate_length_of :rules }
     it { should validate_length_of :message_letter_subj }
     it { should validate_length_of :message_text }
+    it { should validate_length_of :admin_label_settings }
+    it { should validate_length_of :admin_label_bids }
   end
 
 end
