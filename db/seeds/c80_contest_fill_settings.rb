@@ -11,6 +11,8 @@ C80Contest::Setting.create!({
                                    :ok_text => 'Ваша заявка принята',
                                    :ok_text_title => 'Ваша заявка отправлена',
                                    :admin_label_menu => 'Розыгрыш',
+                                   :admin_label_bids => 'Заявки',
+                                   :admin_label_settings => 'Настройки',
                                    :rules => 'Акция проводится с 18 мая по 18 июня. В розыгрыше участвуют чеки на покупки, совершённые в цетре "7авто".',
                                    :message_letter_subj => 'Заявка на участие',
                                    :message_text => ' • Имя: {name}<br>' +
