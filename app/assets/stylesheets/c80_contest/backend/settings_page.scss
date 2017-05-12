@@ -1,0 +1,31 @@
+body.admin_c80_contest_settings {
+
+  #titlebar_right .action_items {
+    display: none;
+  }
+
+  .table_tools {
+    display: none;
+  }
+
+  a.view_link {
+    display: none;
+  }
+  a.delete_link {
+    display: none;
+  }
+
+  .blank_slate_container {
+    opacity: 0;
+  }
+
+  dl {
+    dt {
+      font-weight: bold;
+    }
+    dd {
+
+    }
+  }
+
+}
