@@ -19,13 +19,14 @@ body.admin_c80_contest_settings {
     opacity: 0;
   }
 
-  dl {
-    dt {
+  ul {
+    white-space: nowrap;
+    em {
       font-weight: bold;
+      display: inline-block;
+      width: 200px;
     }
-    dd {
 
-    }
   }
 
 }
