@@ -6,6 +6,7 @@ if defined?(ActiveAdmin)
            :label => C80Contest::Setting.first.admin_label_settings if C80Contest::Setting.first.present?
     end
 
+    # noinspection RubyResolve
     before_filter :skip_sidebar!, :only => :index
 
     controller do
@@ -13,9 +14,17 @@ if defined?(ActiveAdmin)
       def update
         setting = C80Contest::Setting.find(params[:id])
         permitted_params[:setting].each_key do |k|
-          setting.update_column(k, permitted_params[:setting][k])
+          if k == 'button_photo'
+            # byebug
+            # noinspection RubyResolve
+            setting.button_photo = permitted_params[:setting][k]
+            setting.save!
+          else
+            setting.update_column(k, permitted_params[:setting][k])
+          end
         end
-        render :action => 'index'
+        # noinspection RailsParamDefResolve
+        redirect_to :action => :index
       end
 
       def permitted_params
@@ -38,7 +47,8 @@ if defined?(ActiveAdmin)
                 :admin_label_bids,
                 :mail_from,
                 :mail_to,
-                :is_active
+                :is_active,
+                :button_photo
             ]
         )
       end
@@ -49,7 +59,16 @@ if defined?(ActiveAdmin)
         a = ''
         s.attribute_names.sort.each do |n|
           next if n =~ /message_text|created_at|updated_at|id/
-          a += "<li><em>#{n}:</em>#{s[n]}</li>"
+          sn = s[n]
+          if n == 'button_photo'
+            if s[n].nil?
+              sn = '<картинка баннера не загружена>'
+            else
+              sn = "<img src='#{# noinspection RubyResolve
+              s.button_photo.url}'/>"
+            end
+          end
+          a += "<li><em>#{n}:</em>#{sn}</li>"
         end
         "<ul>#{a}</ul>".html_safe
       end
@@ -66,6 +85,8 @@ if defined?(ActiveAdmin)
         f.input :form_label_photo
         f.input :form_label_button_send
         f.input :form_label_button_sending
+        # noinspection RubyResolve
+        f.input :button_photo, :hint => "#{image_tag(f.object.button_photo.url)}".html_safe
         f.input :rules, :input_html => {:rows => 3, :class => 'code_area'}
         f.input :ok_text
         f.input :ok_text_title

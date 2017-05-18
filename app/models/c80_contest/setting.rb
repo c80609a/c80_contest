@@ -1,6 +1,8 @@
 module C80Contest
   class Setting < ActiveRecord::Base
 
+    mount_uploader :button_photo, C80Contest::ButtonPhotoUploader
+
     validates :form_title,
               :presence => true,
               :length => { :in => 5..125 }
