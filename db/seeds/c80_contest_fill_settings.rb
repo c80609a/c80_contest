@@ -17,6 +17,7 @@ C80Contest::Setting.create!({
                                    :message_letter_subj => 'Заявка на участие',
                                    :mail_from => 'robot@mail.ru',
                                    :mail_to => 'admin@mail.ru',
+                                   :is_active => true,
                                    :message_text => ' • Имя: {name}<br>' +
                                        ' • Номер телефона: {phone}<br>' +
                                        ' • Фото чека: <br>' +

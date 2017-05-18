@@ -37,7 +37,8 @@ if defined?(ActiveAdmin)
                 :admin_label_settings,
                 :admin_label_bids,
                 :mail_from,
-                :mail_to
+                :mail_to,
+                :is_active
             ]
         )
       end
@@ -58,6 +59,7 @@ if defined?(ActiveAdmin)
 
     form(:html => {:multipart => true}) do |f|
       f.inputs do
+        f.input :is_active
         f.input :form_title
         f.input :form_label_name
         f.input :form_label_phone
