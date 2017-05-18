@@ -15,6 +15,8 @@ C80Contest::Setting.create!({
                                    :admin_label_settings => 'Настройки',
                                    :rules => 'Акция проводится с 18 мая по 18 июня. В розыгрыше участвуют чеки на покупки, совершённые в цетре "7авто".',
                                    :message_letter_subj => 'Заявка на участие',
+                                   :mail_from => 'robot@mail.ru',
+                                   :mail_to => 'admin@mail.ru',
                                    :message_text => ' • Имя: {name}<br>' +
                                        ' • Номер телефона: {phone}<br>' +
                                        ' • Фото чека: <br>' +
