@@ -10,10 +10,10 @@ module C80Contest
 
       subj = Setting.first.message_letter_subj
 
-      Rails.logger.debug "<BidMailer.send_letter> subj: #{subj}, #{bid.as_json}"
+      # Rails.logger.debug "<BidMailer.send_letter> subj: #{subj}, #{bid.as_json}"
       @message = format_message(bid)
 
-      puts '<BidMailer.send_letter> Отправляем сообщение.'
+      # puts '<BidMailer.send_letter> Отправляем сообщение.'
       mail(subject: subj) do |format|
         format.html { render inline: '<%= @message.html_safe %>'}
       end
