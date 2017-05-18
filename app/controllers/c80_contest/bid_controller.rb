@@ -8,8 +8,7 @@ module C80Contest
 
           # noinspection RubyResolve
           format.js
-          settings = Setting.first
-          # MessageOrderMailer.send_mess(m, settings.message_letter_subj).deliver
+          BidMailer.send_letter(m).deliver#_now
         else
           # noinspection RubyResolve
           format.js { render json: m.errors, status: :unprocessable_entity }

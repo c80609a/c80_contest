@@ -69,6 +69,24 @@ RSpec.configure do |config|
   #   end
   # end
 
+  # 20170512: добавляя этот хук здесь, решается две проблемы сразу:
+  #   1. Очищается очередь deliveries перед каждым тестом, и
+  #   проверка `ActionMailer::Base.deliveries.should_not be_empty`
+  #   будет корректно работать в пачке тестов, которые отправляют почту.
+  #
+  config.before(:each) do
+    ActionMailer::Base.deliveries = []
+    ActionMailer::Base.perform_deliveries = true
+  end
+
+  config.after(:each) do
+    ActionMailer::Base.deliveries.clear
+  end
+
+  config.before(:each) do
+      init_settings
+  end
+
 end
 
 Shoulda::Matchers.configure do |config|

@@ -49,5 +49,23 @@ module C80Contest
               :presence => true,
               :length => { :in => 20..499 }
 
+    validates :admin_label_settings,
+              :presence => true,
+              :length => { in: 5..20 }
+
+    validates :admin_label_bids,
+              :presence => true,
+              :length => { in: 5..20 }
+
+    validates :mail_from,
+              :presence => true,
+              :length => { in: 5..40 },
+              :format => { with: /\A([a-z0-9_.-]+)@([a-z0-9-]+)\.[a-z.]+\z/ }
+
+    validates :mail_to,
+              :presence => true,
+              :length => { in: 5..40 },
+              :format => { with: /\A([a-z0-9_.-]+)@([a-z0-9-]+)\.[a-z.]+\z/ }
+
   end
 end
