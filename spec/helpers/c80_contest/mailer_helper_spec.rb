@@ -18,8 +18,13 @@ module C80Contest
       # puts "@bid.photo.url = #{@bid.photo.url}"
     end
 
-    it '#format_message должен правильно отформатировать строку' do
+    it '#format_message должен правильно отформатировать правильную строку' do
       expect(helper.format_message(@bid)).to eq 'Agent Mulder,81203,test.jpg,test.jpg,15'
+    end
+
+    it '#format_message должен правильно отформатировать неправильную строку' do
+      Setting.first.update_column(:message_text, 'ничего не делай')
+      expect(helper.format_message(@bid)).to eq 'ничего не делай'
     end
 
   end
