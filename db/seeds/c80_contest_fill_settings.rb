@@ -23,5 +23,5 @@ C80Contest::Setting.create!({
                                        ' • Фото чека: <br>' +
                                        ' <img src="http://google.com/uploads/bids/{photo_url}" />' +
                                        ' --------------------------------------<br>' +
-                                       " Просмотреть заявку: <a href='http://google.com/admin/bids/{subj_id}'>http://google.com/admin/bids/{subj_id}</a><br>"
+                                       " Просмотреть заявку: <a href='http://google.com/admin/bids/{bid_id}'>http://google.com/admin/bids/{bid_id}</a><br>"
                                })
