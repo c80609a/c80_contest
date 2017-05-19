@@ -21,7 +21,7 @@ C80Contest::Setting.create!({
                                    :message_text => ' • Имя: {name}<br>' +
                                        ' • Номер телефона: {phone}<br>' +
                                        ' • Фото чека: <br>' +
-                                       ' <img src="http://google.com/uploads/bids/{photo_url}" />' +
+                                       ' <img src="http://google.com/{photo_url}" />' +
                                        ' --------------------------------------<br>' +
                                        " Просмотреть заявку: <a href='http://google.com/admin/bids/{bid_id}'>http://google.com/admin/bids/{bid_id}</a><br>"
                                })
