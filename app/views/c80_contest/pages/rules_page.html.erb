@@ -1,0 +1,7 @@
+<div class="center-block rules-page-btn">
+  <%= render_banner_button %>
+</div>
+<div class="center-block rules-page">
+<%= # noinspection RubyResolve
+    @rules.html_safe if @rules.present? %>
+</div>

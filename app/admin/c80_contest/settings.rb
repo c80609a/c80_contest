@@ -60,6 +60,8 @@ if defined?(ActiveAdmin)
         s.attribute_names.sort.each do |n|
           next if n =~ /message_text|created_at|updated_at|id/
           sn = s[n]
+
+          # особым образом выведем фотку
           if n == 'button_photo'
             if s[n].nil?
               sn = '<картинка баннера не загружена>'
@@ -68,6 +70,27 @@ if defined?(ActiveAdmin)
               s.button_photo.url}'/>"
             end
           end
+
+          # особым образом выведем правила
+          if n == 'rules' && sn.present?
+            tmp = ActionView::Base.full_sanitizer.sanitize(sn)
+
+            t = tmp.gsub("\n",'')
+            s = t unless t.nil?
+
+            t = s.gsub("\t",' ')
+            s = t unless t.nil?
+
+            t = s.gsub("\r",'')
+            s = t unless t.nil?
+
+            t = s.gsub(/&\w+;/,'*')
+            s = t unless t.nil?
+
+            ah = "<a href='/rules_page' target='_blank' style='text-decoration: underline;'>Просмотреть</a>"
+            sn = "#{tmp[0..129]}... <em style='color:#2b2b2b;'>(знаков с пробелами: ~#{s.size})</em> #{ah}"
+          end
+
           a += "<li><em>#{n}:</em>#{sn}</li>"
         end
         "<ul>#{a}</ul>".html_safe
@@ -87,7 +110,7 @@ if defined?(ActiveAdmin)
         f.input :form_label_button_sending
         # noinspection RubyResolve
         f.input :button_photo, :hint => "#{image_tag(f.object.button_photo.url)}".html_safe
-        f.input :rules, :input_html => {:rows => 3, :class => 'code_area'}
+        f.input :rules, :as => :ckeditor
         f.input :ok_text
         f.input :ok_text_title
         f.input :mail_from

@@ -1,6 +1,11 @@
 module C80Contest
   module ApplicationHelper
 
+    # такое тоже бывает, после того, как создал PagesController
+    def root_url
+      '/'
+    end
+
     def render_bid_form(bid)
       # noinspection RubyResolve
       if settings.is_active
