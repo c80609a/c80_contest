@@ -2,8 +2,12 @@ if defined?(ActiveAdmin)
   ActiveAdmin.register C80Contest::Setting do
 
     if ActiveRecord::Base.connection.table_exists?('c80_contest_settings')
-      menu :parent => C80Contest::Setting.first.admin_label_menu,
-           :label => C80Contest::Setting.first.admin_label_settings if C80Contest::Setting.first.present?
+      begin
+        menu :parent => C80Contest::Setting.first.admin_label_menu,
+             :label => C80Contest::Setting.first.admin_label_settings if C80Contest::Setting.first.present?
+      rescue NoMethodError => e # NOTE:: ошибка возникает во время миграции
+        puts "[TRACE] <Admin.settings> #{e}"
+      end
     end
 
     # noinspection RubyResolve
