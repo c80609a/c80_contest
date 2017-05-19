@@ -18,10 +18,10 @@ C80Contest::Setting.create!({
                                    :mail_from => 'robot@mail.ru',
                                    :mail_to => 'admin@mail.ru',
                                    :is_active => true,
-                                   :message_text => ' • Имя: {name}<br>' +
+                                   :message_text => ' • Имя: {title}<br>' +
                                        ' • Номер телефона: {phone}<br>' +
                                        ' • Фото чека: <br>' +
-                                       ' <img src="http://google.com/{photo_url}" />' +
+                                       ' <img src="http://google.com/{photo_url}" /><br>' +
                                        ' --------------------------------------<br>' +
                                        " Просмотреть заявку: <a href='http://google.com/admin/bids/{bid_id}'>http://google.com/admin/bids/{bid_id}</a><br>"
                                })
