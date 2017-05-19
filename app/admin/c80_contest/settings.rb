@@ -13,9 +13,15 @@ if defined?(ActiveAdmin)
     # noinspection RubyResolve
     before_filter :skip_sidebar!, :only => :index
 
+    # noinspection RubyResolve
+    config.clear_action_items!
+    config.batch_actions = false
+
     controller do
 
-      def update
+      actions :all, :except => [:show, :destroy]
+
+      def update # NOTE:: эта канитель нужна, т.к. activeadmin не хочет "из-коробки" апдейтить модель (при наличии namespace)
         setting = C80Contest::Setting.find(params[:id])
         permitted_params[:setting].each_key do |k|
           if k == 'button_photo'
@@ -24,7 +30,11 @@ if defined?(ActiveAdmin)
             setting.button_photo = permitted_params[:setting][k]
             setting.save!
           else
-            setting.update_column(k, permitted_params[:setting][k])
+            # NOTE:: но тогда не видны будут ошибки валидации, но зато не проходят невалидные записи
+            # setting.update_column(k, permitted_params[:setting][k])
+            setting.update({
+                               k.to_s => permitted_params[:setting][k]
+                           })
           end
         end
         # noinspection RailsParamDefResolve
@@ -95,9 +105,10 @@ if defined?(ActiveAdmin)
             sn = "#{tmp[0..129]}... <em style='color:#2b2b2b;'>(знаков с пробелами: ~#{s.size})</em> #{ah}"
           end
 
-          a += "<li><em>#{n}:</em>#{sn}</li>"
+          # NOTE:: не подхватываются стили в production в кое-каком старом проекте, inline их тут
+          a += "<li><em style='font-weight:bold;display:inline-block;width:200px;'>#{n}:</em>#{sn}</li>"
         end
-        "<ul>#{a}</ul>".html_safe
+        "<ul style='white-space:nowrap'>#{a}</ul>".html_safe
       end
 
       actions
