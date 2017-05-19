@@ -1,9 +1,12 @@
 module C80Contest
-  class ApplicationController < ActionController::Base
-    protect_from_forgery with: :exception
+  class PagesController < ::ApplicationController
 
     # noinspection RubyResolve
     before_filter :check_is_active
+
+    def rules_page
+      @rules = Setting.first.rules
+    end
 
     private
 

@@ -24,6 +24,7 @@ def init_settings
                       :mail_from => 'abc@ab.ru',
                       :mail_to => 'qwerty@qwerty.ru',
                       :message_letter_subj => 'Заявка на участие',
+                      :is_active => true,
                       :message_text => '{title},{phone},{photo_url},{photo_url},{bid_id}'
                   })
 end

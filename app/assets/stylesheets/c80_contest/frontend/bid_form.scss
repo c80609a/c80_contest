@@ -1,0 +1,85 @@
+div#bid_form {
+
+  .modal-content {
+
+    .modal-header {
+
+      h4 {
+      }
+
+      a.medium {
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+        color: white;
+        font-size: 16px;
+        text-decoration: underline;
+        /*font-family: "DinCondProBold";*/
+      }
+
+      button.close {
+      }
+
+    }
+
+    .modal-body {
+      label.control-label {
+      }
+
+      .form-control {
+
+        /*стилизуем bootstrap fileinput*/
+        &.kv-fileinput-caption {
+
+          /*в этом блоке живёт имя файла и иконка слева*/
+          div.file-caption-name {
+            overflow: visible;
+            height: 28px;
+            margin-top: 8px;
+            margin-left: 6px;
+
+            /*иконку чуть отодвинем влево*/
+            i.glyphicon {
+              left: -6px;
+              color: #337ab7;
+            }
+
+          }
+        }
+
+      }
+
+      .input-group-btn {
+
+        /*скроем кнопку "загрузить" плагина fileinput*/
+        .fileinput-upload-button {
+          display: none;
+        }
+
+        /*кнопки "удалить" и "browse" подгоним по высоте к полю, где живёт имя файла*/
+        .btn {
+        }
+
+      }
+
+      /*у плагина fileinput картинку-предпросмотр ограничим по ширине*/
+      .kv-file-content {
+        img.file-preview-image {
+          width: auto !important;
+          height: auto !important;
+          max-width: 625px;
+        }
+      }
+
+      div.actions {
+        label.control-label {
+          display: none;
+        }
+        input.btn {
+
+        }
+      }
+    }
+
+  }
+}

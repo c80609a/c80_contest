@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170512170504) do
+ActiveRecord::Schema.define(version: 20170518191906) do
 
   create_table "c80_contest_bids", force: :cascade do |t|
     t.string   "title",      limit: 255
@@ -42,6 +42,8 @@ ActiveRecord::Schema.define(version: 20170512170504) do
     t.string   "admin_label_bids",          limit: 255
     t.string   "mail_from",                 limit: 255
     t.string   "mail_to",                   limit: 255
+    t.boolean  "is_active"
+    t.string   "button_photo",              limit: 255
   end
 
 end

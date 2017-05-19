@@ -1,0 +1,14 @@
+#lo {
+  position: absolute;
+  width: 50px;
+  height: 17px;
+  background: transparent url(image_path('c80_contest/lo.gif')) no-repeat 50% 50%;
+  z-index: 120;
+  transition: visibility 1s, opacity 0.5s linear;
+
+  &.invis {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+}
