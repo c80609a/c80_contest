@@ -15,23 +15,23 @@ group :development, :test do
   gem 'factory_girl_rails'
 
   # You don't need these, but I use them
-  gem 'rb-fsevent'
+  # gem 'rb-fsevent'
   gem 'ffaker'
-  gem 'pry'
+  # gem 'pry'
 
 end
 
 group :development do
   # You don't need these, but I use them
-  gem 'better_errors'
+  # gem 'better_errors'
   gem 'awesome_print'
-  gem 'brakeman'
+  # gem 'brakeman'
 end
 
 group :test do
   # You don't need these, but I use them
-  gem 'vcr'
-  gem 'webmock'
+  # gem 'vcr'
+  # gem 'webmock'
   gem 'capybara'
-  gem 'simplecov', require: false
+  # gem 'simplecov', require: false
 end
