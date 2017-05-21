@@ -17,7 +17,7 @@ require 'rspec/rails'
 require 'capybara/rspec'
 # require 'capybara/rails'
 require 'c80_contest'
-require 'byebug'
+# require 'byebug'
 # noinspection RubyResolve
 require 'vcr'
 
@@ -52,13 +52,13 @@ RSpec.configure do |config|
   # most common use case is to focus on a subset of examples as you're focused on
   # a particular problem.
   # noinspection RubyResolve
-  config.filter_run :focus
+  # config.filter_run :focus
 
   # Use the run_all_when_everything_filtered configuration option to do just
   # that. This works well when paired with an inclusion filter like ":focus =>
   # true", as it will run all the examples when none match the inclusion filter.
   # noinspection RubyResolve
-  config.run_all_when_everything_filtered = true
+  # config.run_all_when_everything_filtered = true
 
   # Disable RSpec exposing methods globally on `Module` and `main`
   config.disable_monkey_patching!
