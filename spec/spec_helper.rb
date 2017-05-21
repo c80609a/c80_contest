@@ -1,7 +1,6 @@
 
 ENV['RAILS_ENV'] = 'test'
 
-# require 'capybara/rspec'
 
 # require 'combustion'
 # Combustion.path = 'spec/dummy'
@@ -14,9 +13,13 @@ require 'carrierwave/orm/activerecord'
 require 'mini_magick'
 require File.expand_path('../dummy/config/environment.rb', __FILE__) # конфликтует с combustion
 require 'rspec/rails'
+# noinspection RubyResolve
+require 'capybara/rspec'
 # require 'capybara/rails'
 require 'c80_contest'
 require 'byebug'
+# noinspection RubyResolve
+require 'vcr'
 
 ActiveRecord::Migration.check_pending!
 Rails.backtrace_cleaner.remove_silencers!
@@ -45,11 +48,54 @@ RSpec.configure do |config|
   # по-этому добавил эту строку
   ActiveRecord::Base.raise_in_transactional_callbacks = true
 
+  # You can restrict which examples are run by declaring an inclusion filter. The
+  # most common use case is to focus on a subset of examples as you're focused on
+  # a particular problem.
+  # noinspection RubyResolve
+  config.filter_run :focus
+
+  # Use the run_all_when_everything_filtered configuration option to do just
+  # that. This works well when paired with an inclusion filter like ":focus =>
+  # true", as it will run all the examples when none match the inclusion filter.
+  # noinspection RubyResolve
+  config.run_all_when_everything_filtered = true
+
   # Disable RSpec exposing methods globally on `Module` and `main`
   config.disable_monkey_patching!
 
+  if config.files_to_run.one?
+    config.default_formatter = 'doc'
+  end
+
+  # prints the 10 slowest examples
+  # noinspection RubyResolve
+  config.profile_examples = 10
+
+  config.order = :random
+
+  Kernel.srand config.seed
+
+  # должно быть в rails_helper.rb
+  # noinspection RubyResolve
+  config.include Capybara::RSpecMatchers
+  # noinspection RubyResolve
+  config.use_transactional_fixtures = true
+  config.infer_spec_type_from_file_location!
+
+
   config.expect_with :rspec do |c|
     c.syntax = :expect
+    # Sets if custom matcher descriptions and failure messages should include clauses from methods defined using chain.
+    c.include_chain_clauses_in_custom_matcher_descriptions = true
+  end
+
+  config.mock_with :rspec do |mocks|
+    # When the verify_partial_doubles configuration option is set, the same argument and
+    # method existence checks that are performed for
+    # object_double are also performed on partial doubles. You
+    # should set this unless you have a good reason not to. It defaults to off
+    # only for backwards compatibility.
+    mocks.verify_partial_doubles = true
   end
 
   # 20170511: Пытаемся избавиться от DEPRECATED message при тестировании
