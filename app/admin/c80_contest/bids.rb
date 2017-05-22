@@ -17,16 +17,42 @@ ActiveAdmin.register C80Contest::Bid, :as => 'Bid' do
 
   index do
     id_column
-    column :created_at
+    column :created_at do |bid|
+      l(bid.created_at.in_time_zone('Moscow'), {:format => '%Y-%b-%d [%H:%M:%S]'})
+    end
     column :title
     column :phone
     column :photo do |bid|
       if bid.photo.present?
-        link_to image_tag(bid.photo.thumb.url), bid.photo.url
+        # link_to image_tag(bid.photo.thumb.url), bid.photo.url
+        thumb_base_file_name = File.basename(bid.photo.thumb.url)
+        base_file_name = File.basename(bid.photo.url)
+        link_to image_tag("/uploads/bids/#{thumb_base_file_name}"),
+                "/uploads/bids/#{base_file_name}"
       end
     end
 
     actions
+  end
+
+  show do
+    attributes_table do
+      row :title
+      row :phone
+      row :created_at do |bid|
+        # bid.created_at.in_time_zone('Moscow').strftime('%Y-%b-%d %H:%M:%S')
+        l(bid.created_at.in_time_zone('Moscow'), {:format => '%Y-%b-%d [%H:%M:%S]'})
+      end
+      row :photo do |bid|
+        if bid.photo.present?
+          # link_to image_tag(bid.photo.thumb.url), bid.photo.url
+          thumb_base_file_name = File.basename(bid.photo.thumb.url)
+          base_file_name = File.basename(bid.photo.url)
+          link_to image_tag("/uploads/bids/#{thumb_base_file_name}"),
+                  "/uploads/bids/#{base_file_name}"
+        end
+      end
+    end
   end
 
 end
