@@ -1,0 +1,15 @@
+{
+  "command": "ruby -rubygems -r./engine_plan -eZeus.go",
+
+  "plan": {
+    "boot": {
+      "default_bundle": {
+        "development_environment": {
+        },
+        "test_environment": {
+          "test_helper": {"test": ["rspec", "testrb"]}
+        }
+      }
+    }
+  }
+}

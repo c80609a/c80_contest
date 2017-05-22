@@ -1,6 +1,7 @@
 module C80Contest
-  class ApplicationController < ActionController::Base
-    protect_from_forgery with: :exception
+  # This line will inherit from the host applications ApplicationController,
+  # giving access to your authentication, current_user, etc...
+  class ApplicationController < ::ApplicationController
 
     # noinspection RubyResolve
     before_filter :check_is_active

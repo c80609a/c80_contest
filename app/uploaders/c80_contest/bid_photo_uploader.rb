@@ -12,7 +12,7 @@ module C80Contest
     end
 
     def store_dir
-      'uploads/bids/'
+      "#{Rails.root}/uploads/bids/"
     end
 
     def filename
